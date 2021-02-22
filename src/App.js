@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
+import Home from './Admin/Pages/Home';
+import Menu from './Admin/Pages/Menu';
+import Orders from './Admin/Pages/Orders';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import MarerialUIDrawer from './Admin/Components/Drawer'; 
+import { BrowserRouter, Route, Switch } 
+	from 'react-router-dom'; 
 
-export default App;
+function App() { 
+return ( 
+	<div className="App"> 
+
+    <BrowserRouter> 
+     <MarerialUIDrawer/> 
+      <Switch> 
+        <Route exact path='/' render= 
+          {props => <Home {...props} /> }/> 
+        <Route exact path='/Menu' render= 
+            {props => <Menu {...props} /> }/> 
+         <Route exact path='/Orders' render= 
+            {props => <Orders {...props} /> }/> 
+    </Switch> 
+	</BrowserRouter> 
+	</div> 
+); 
+} 
+
+export default App; 
